@@ -43,7 +43,8 @@ namespace Tiled {
 class TILEDSHARED_EXPORT IsometricRenderer : public MapRenderer
 {
 public:
-    IsometricRenderer(const Map *map) : MapRenderer(map) {}
+    IsometricRenderer(const Map *map) : MapRenderer(map),
+        font(QLatin1String("Verdana"), 24, QFont::Normal) {}
 
     QSize mapSize() const;
 
@@ -79,6 +80,8 @@ public:
 private:
     QPolygonF tileRectToPolygon(const QRect &rect) const;
     QPolygonF tileRectToPolygon(const QRectF &rect) const;
+
+    QFont font;
 };
 
 } // namespace Tiled

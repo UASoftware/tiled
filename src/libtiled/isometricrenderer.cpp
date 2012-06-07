@@ -66,7 +66,7 @@ QRect IsometricRenderer::boundingRect(const QRect &rect) const
 
 QRectF IsometricRenderer::boundingRect(const MapObject *object) const
 {
-    const int nameHeight = object->name().isEmpty() ? 0 : 15;
+    const int nameHeight = object->name().isEmpty() ? 0 : 30;
 
     if (object->tile()) {
         const QPointF bottomCenter = tileToPixelCoords(object->position());
@@ -301,6 +301,8 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
                                       const QColor &color) const
 {
     painter->save();
+
+    painter->setFont(font);
 
     QPen pen(Qt::black);
 
