@@ -51,6 +51,9 @@ MapView::MapView(QWidget *parent)
     connect(prefs, SIGNAL(useOpenGLChanged(bool)), SLOT(setUseOpenGL(bool)));
 #endif
 
+    setNameLabels(prefs->nameLabels());
+    connect(prefs, SIGNAL(nameLabelsChanged(bool)), SLOT(setNameLabels(bool)));
+
     QWidget *v = viewport();
 
     /* Since Qt 4.5, setting this attribute yields significant repaint
@@ -103,6 +106,11 @@ void MapView::setUseOpenGL(bool useOpenGL)
     v->setAttribute(Qt::WA_StaticContents);
     v->setMouseTracking(true);
 #endif
+}
+
+void MapView::setNameLabels(bool nameLabels)
+{
+
 }
 
 void MapView::setHandScrolling(bool handScrolling)

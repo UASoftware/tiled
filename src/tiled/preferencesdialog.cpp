@@ -134,6 +134,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     connect(mUi->languageCombo, SIGNAL(currentIndexChanged(int)),
             SLOT(languageSelected(int)));
     connect(mUi->openGL, SIGNAL(toggled(bool)), SLOT(useOpenGLToggled(bool)));
+    connect(mUi->nameLabels, SIGNAL(toggled(bool)), SLOT(nameLabelsToggled(bool)));
     connect(mUi->gridColor, SIGNAL(colorChanged(QColor)),
             Preferences::instance(), SLOT(setGridColor(QColor)));
 
@@ -192,6 +193,11 @@ void PreferencesDialog::languageSelected(int index)
 void PreferencesDialog::useOpenGLToggled(bool useOpenGL)
 {
     Preferences::instance()->setUseOpenGL(useOpenGL);
+}
+
+void PreferencesDialog::nameLabelsToggled(bool nameLabels)
+{
+    Preferences::instance()->setNameLabels(nameLabels);
 }
 
 void PreferencesDialog::addObjectType()

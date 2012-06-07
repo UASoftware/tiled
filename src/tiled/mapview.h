@@ -65,6 +65,7 @@ protected:
 private slots:
     void adjustScale(qreal scale);
     void setUseOpenGL(bool useOpenGL);
+    void setNameLabels(bool nameLabels);
 
 private:
     QPoint mLastMousePos;

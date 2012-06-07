@@ -226,6 +226,17 @@ void Preferences::setUseOpenGL(bool useOpenGL)
     emit useOpenGLChanged(mUseOpenGL);
 }
 
+void Preferences::setNameLabels(bool nameLabels)
+{
+    if(mNameLabels == nameLabels)
+        return;
+
+    mNameLabels = nameLabels;
+    mSettings->setValue(QLatin1String("Shape/NameLabels"), mNameLabels);
+
+    emit nameLabelsChanged(mNameLabels);
+}
+
 void Preferences::setObjectTypes(const ObjectTypes &objectTypes)
 {
     mObjectTypes = objectTypes;

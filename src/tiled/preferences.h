@@ -66,6 +66,9 @@ public:
     bool useOpenGL() const { return mUseOpenGL; }
     void setUseOpenGL(bool useOpenGL);
 
+    bool nameLabels() const { return mNameLabels; }
+    void setNameLabels(bool nameLabels);
+
     const ObjectTypes &objectTypes() const { return mObjectTypes; }
     void setObjectTypes(const ObjectTypes &objectTypes);
 
@@ -103,6 +106,8 @@ signals:
 
     void useOpenGLChanged(bool useOpenGL);
 
+    void nameLabelsChanged(bool nameLabels);
+
     void objectTypesChanged();
 
 private:
@@ -122,6 +127,7 @@ private:
     QString mLanguage;
     bool mReloadTilesetsOnChange;
     bool mUseOpenGL;
+    bool mNameLabels;
     ObjectTypes mObjectTypes;
 
     bool mAutoMapDrawing;
