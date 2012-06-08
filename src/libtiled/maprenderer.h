@@ -49,7 +49,7 @@ class ImageLayer;
 class TILEDSHARED_EXPORT MapRenderer
 {
 public:
-    MapRenderer(const Map *map) : mMap(map) {}
+    MapRenderer(const Map *map) : mMap(map), mNameLabelsVisible(true) {}
     virtual ~MapRenderer() {}
 
     /**
@@ -144,6 +144,12 @@ public:
         return screenPolygon;
     }
 
+    /**
+     * Name labels visibility flag
+     */
+    void setNameLabelsVisible(bool visible) { mNameLabelsVisible = visible; }
+    bool isNameLabelsVisible() const { return mNameLabelsVisible; }
+
     static QPolygonF lineToPolygon(const QPointF &start, const QPointF &end);
 
 protected:
@@ -154,6 +160,7 @@ protected:
 
 private:
     const Map *mMap;
+    bool mNameLabelsVisible;
 };
 
 } // namespace Tiled

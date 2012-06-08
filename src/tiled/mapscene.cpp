@@ -431,6 +431,15 @@ void MapScene::setGridVisible(bool visible)
     update();
 }
 
+void MapScene::setNameLabelsVisible(bool visible)
+{
+    if(mMapDocument->renderer()->isNameLabelsVisible() == visible)
+        return;
+
+    mMapDocument->renderer()->setNameLabelsVisible(visible);
+    update();
+}
+
 void MapScene::setHighlightCurrentLayer(bool highlightCurrentLayer)
 {
     if (mHighlightCurrentLayer == highlightCurrentLayer)

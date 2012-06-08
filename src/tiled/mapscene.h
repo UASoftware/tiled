@@ -115,6 +115,11 @@ public slots:
     void setGridVisible(bool visible);
 
     /**
+     * Sets name labels visible
+     */
+    void setNameLabelsVisible(bool visible);
+
+    /**
      * Sets whether the current layer should be highlighted.
      */
     void setHighlightCurrentLayer(bool highlightCurrentLayer);

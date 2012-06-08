@@ -66,7 +66,7 @@ QRect IsometricRenderer::boundingRect(const QRect &rect) const
 
 QRectF IsometricRenderer::boundingRect(const MapObject *object) const
 {
-    const int nameHeight = object->name().isEmpty() ? 0 : 30;
+    const int nameHeight = (!isNameLabelsVisible() || object->name().isEmpty()) ? 0 : 30;
 
     if (object->tile()) {
         const QPointF bottomCenter = tileToPixelCoords(object->position());
@@ -362,7 +362,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
 
             QPolygonF polygon = tileRectToPolygon(object->bounds());
             painter->drawPolygon(polygon);
-            if (!name.isEmpty())
+            if (!name.isEmpty() && isNameLabelsVisible())
                 painter->drawText(QPoint(headerX, headerY - 5 + 1), name);
 
             pen.setColor(color);
@@ -371,7 +371,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
             polygon.translate(0, -1);
 
             painter->drawPolygon(polygon);
-            if (!name.isEmpty())
+            if (!name.isEmpty() && isNameLabelsVisible())
                 painter->drawText(QPoint(headerX, headerY - 5), name);
             break;
         }
@@ -386,7 +386,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
             QString name = fm.elidedText(object->name(), Qt::ElideRight,
                                          polygonBoundingRect.width() + 2);
 
-            if (!name.isEmpty())
+            if (!name.isEmpty() && isNameLabelsVisible())
                 painter->drawText(QPoint(polygonBoundingRect.left(), polygonBoundingRect.top() - 5 + 1), name);
 
             painter->drawPolygon(screenPolygon);
@@ -398,7 +398,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
 
             painter->drawPolygon(screenPolygon);
 
-            if (!name.isEmpty())
+            if (!name.isEmpty() && isNameLabelsVisible())
                 painter->drawText(QPoint(polygonBoundingRect.left(), polygonBoundingRect.top() - 5), name);
 
             break;

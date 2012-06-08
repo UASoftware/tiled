@@ -180,6 +180,7 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
 
     mUi->actionShowGrid->setChecked(preferences->showGrid());
     mUi->actionSnapToGrid->setChecked(preferences->snapToGrid());
+    mUi->actionShowLabels->setChecked(preferences->nameLabels());
     mUi->actionHighlightCurrentLayer->setChecked(preferences->highlightCurrentLayer());
 
     // Make sure Ctrl+= also works for zooming in
@@ -260,6 +261,8 @@ MainWindow::MainWindow(QWidget *parent, Qt::WFlags flags)
             preferences, SLOT(setShowGrid(bool)));
     connect(mUi->actionSnapToGrid, SIGNAL(toggled(bool)),
             preferences, SLOT(setSnapToGrid(bool)));
+    connect(mUi->actionShowLabels, SIGNAL(toggled(bool)),
+            preferences, SLOT(setNameLabels(bool)));
     connect(mUi->actionHighlightCurrentLayer, SIGNAL(toggled(bool)),
             preferences, SLOT(setHighlightCurrentLayer(bool)));
     connect(mUi->actionZoomIn, SIGNAL(triggered()), SLOT(zoomIn()));
@@ -1410,6 +1413,9 @@ void MainWindow::addMapDocument(MapDocument *mapDocument)
     mapScene->setGridVisible(prefs->showGrid());
     connect(prefs, SIGNAL(showGridChanged(bool)),
             mapScene, SLOT(setGridVisible(bool)));
+    mapScene->setNameLabelsVisible(prefs->nameLabels());
+    connect(prefs, SIGNAL(nameLabelsChanged(bool)),
+            mapScene, SLOT(setNameLabelsVisible(bool)));
 }
 
 void MainWindow::aboutTiled()

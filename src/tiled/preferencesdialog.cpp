@@ -301,6 +301,8 @@ void PreferencesDialog::fromPreferences()
     if (mUi->openGL->isEnabled())
         mUi->openGL->setChecked(prefs->useOpenGL());
 
+    mUi->nameLabels->setChecked(prefs->nameLabels());
+
     int formatIndex = 0;
     switch (prefs->layerDataFormat()) {
     case MapWriter::XML:

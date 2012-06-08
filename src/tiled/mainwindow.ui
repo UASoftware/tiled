@@ -32,7 +32,7 @@
      <x>0</x>
      <y>0</y>
      <width>553</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -100,6 +100,7 @@
     <addaction name="actionShowGrid"/>
     <addaction name="actionSnapToGrid"/>
     <addaction name="actionHighlightCurrentLayer"/>
+    <addaction name="actionShowLabels"/>
     <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
@@ -402,6 +403,20 @@
    </property>
    <property name="shortcut">
     <string>H</string>
+   </property>
+  </action>
+  <action name="actionShowLabels">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show map object labels</string>
+   </property>
+   <property name="toolTip">
+    <string>Show labels on the map objects</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
    </property>
   </action>
  </widget>

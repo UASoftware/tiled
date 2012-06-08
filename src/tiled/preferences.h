@@ -67,7 +67,6 @@ public:
     void setUseOpenGL(bool useOpenGL);
 
     bool nameLabels() const { return mNameLabels; }
-    void setNameLabels(bool nameLabels);
 
     const ObjectTypes &objectTypes() const { return mObjectTypes; }
     void setObjectTypes(const ObjectTypes &objectTypes);
@@ -96,6 +95,7 @@ public slots:
     void setGridColor(QColor gridColor);
     void setHighlightCurrentLayer(bool highlight);
     void setShowTilesetGrid(bool showTilesetGrid);
+    void setNameLabels(bool nameLabels);
 
 signals:
     void showGridChanged(bool showGrid);

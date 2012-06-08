@@ -92,6 +92,11 @@ Preferences::Preferences()
                                        false).toBool();
     mSettings->endGroup();
 
+    mSettings->beginGroup(QLatin1String("ShapeConfig"));
+    mNameLabels = mSettings->value(QLatin1String("NameLabels"),
+                                   false).toBool();
+    mSettings->endGroup();
+
     TilesetManager *tilesetManager = TilesetManager::instance();
     tilesetManager->setReloadTilesetsOnChange(mReloadTilesetsOnChange);
 }
@@ -232,7 +237,7 @@ void Preferences::setNameLabels(bool nameLabels)
         return;
 
     mNameLabels = nameLabels;
-    mSettings->setValue(QLatin1String("Shape/NameLabels"), mNameLabels);
+    mSettings->setValue(QLatin1String("ShapeConfig/NameLabels"), mNameLabels);
 
     emit nameLabelsChanged(mNameLabels);
 }
