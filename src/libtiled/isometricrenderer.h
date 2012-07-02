@@ -44,7 +44,7 @@ class TILEDSHARED_EXPORT IsometricRenderer : public MapRenderer
 {
 public:
     IsometricRenderer(const Map *map) : MapRenderer(map),
-        font(QLatin1String("Verdana"), 24, QFont::Normal) {}
+        font(QLatin1String("Verdana"), 20, QFont::Bold) {}
 
     QSize mapSize() const;
 
