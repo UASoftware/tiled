@@ -26,3 +26,5 @@ automappingconverter.exe
 
 tests/test_mapreader
 
+bin
+translations/phony_target.app
