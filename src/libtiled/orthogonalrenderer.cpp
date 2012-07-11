@@ -325,7 +325,7 @@ void OrthogonalRenderer::drawMapObject(QPainter *painter,
                 rect = QRectF(QPointF(-10, -10), QSizeF(20, 20));
 
             const QFontMetrics fm = painter->fontMetrics();
-            QString name = fm.elidedText(object->name(), Qt::ElideRight,
+            QString name = fm.elidedText(object->name(), Qt::ElideMiddle,
                                          rect.width() + 2);
 
             // Draw the shadow

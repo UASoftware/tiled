@@ -313,7 +313,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
         painter->drawPixmap(paintOrigin, img);
 
         const QFontMetrics fm = painter->fontMetrics();
-        QString name = fm.elidedText(object->name(), Qt::ElideRight,
+        QString name = fm.elidedText(object->name(), Qt::ElideMiddle,
                                      img.width() + 2);
         if (!name.isEmpty())
             painter->drawText(QPoint(paintOrigin.x(), paintOrigin.y() - 5 + 1), name);
@@ -357,7 +357,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
             QRectF rect(bottomLeft, topRight);
 
             const QFontMetrics fm = painter->fontMetrics();
-            QString name = fm.elidedText(object->name(), Qt::ElideRight,
+            QString name = fm.elidedText(object->name(), Qt::ElideMiddle,
                                          rect.width() + 2);
 
             QPolygonF polygon = tileRectToPolygon(object->bounds());
@@ -383,7 +383,7 @@ void IsometricRenderer::drawMapObject(QPainter *painter,
             const QRectF polygonBoundingRect = screenPolygon.boundingRect();
 
             const QFontMetrics fm = painter->fontMetrics();
-            QString name = fm.elidedText(object->name(), Qt::ElideRight,
+            QString name = fm.elidedText(object->name(), Qt::ElideMiddle,
                                          polygonBoundingRect.width() + 2);
 
             if (!name.isEmpty() && isNameLabelsVisible())
